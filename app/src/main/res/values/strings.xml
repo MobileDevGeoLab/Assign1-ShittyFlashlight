@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Shitty Flashlight</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="red">R</string>
+    <string name="blue">B</string>
+    <string name="green">G</string>
+    <string name="white">W</string>
+    <string name="yellow">Y</string>
+
+</resources>

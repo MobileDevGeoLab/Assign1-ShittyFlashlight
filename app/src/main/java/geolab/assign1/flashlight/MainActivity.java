@@ -1,6 +1,7 @@
 package geolab.assign1.flashlight;
 
 import android.graphics.Color;
+import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,14 +12,39 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends ActionBarActivity {
 
+    private int color;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        if(savedInstanceState != null)
+//            color = savedInstanceState.getInt("Color");
+//
+//        RelativeLayout background = (RelativeLayout) findViewById(R.id.background);
+//        background.setBackgroundColor(color);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("Color", color);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(savedInstanceState != null)
+            color = savedInstanceState.getInt("Color");
+
+        RelativeLayout background = (RelativeLayout) findViewById(R.id.background);
+        background.setBackgroundColor(color);
     }
 
     public void changeColor(View v){
-        int color = Color.WHITE;
+        color = Color.WHITE;
         switch(v.getId()){
             case R.id.red:
                 color = Color.RED;
